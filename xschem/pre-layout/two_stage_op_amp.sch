@@ -192,7 +192,7 @@ let vin = vp -vn
 plot vin vout vdd
 meas dc vout_at_zero find vout when vdiff=0
 
-ac dec 200 10 10000Meg
+ac dec 200 1 10000Meg
 let vin = vp - vn
 let gain = db(vout/vin)
 plot gain
@@ -306,9 +306,9 @@ C {lab_wire.sym} 110 130 2 0 {name=p15 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 90 0 2 0 {name=p16 sig_type=std_logic lab=VSS}
 C {ammeter.sym} 10 370 0 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} -90 -140 0 0 {name=M1
-W=56
+W=70
 L=1
-nf=8
+nf=10
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
@@ -320,9 +320,9 @@ model=nfet_01v8_lvt
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 110 -140 0 1 {name=M2
-W=56
+W=70
 L=1
-nf=8
+nf=10
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
