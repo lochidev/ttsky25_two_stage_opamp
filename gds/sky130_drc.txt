@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <report-database>
  <description>SKY130 DRC runset</description>
- <original-file>/foss/designs/ttsky25_two_stage_opamp/gds/two_stage_op_amp_layout_2.gds</original-file>
+ <original-file>/foss/designs/ttsky25_two_stage_opamp/gds/two_stage_op_amp_layout.gds</original-file>
  <generator>drc: script='/foss/pdks/sky130A/libs.tech/klayout/macros/run_drc_full.lydrc'</generator>
  <top-cell>two_stage_op_amp</top-cell>
  <tags>
@@ -1554,5 +1554,53 @@
   </cell>
  </cells>
  <items>
+  <item>
+   <tags/>
+   <category>'m1.2'</category>
+   <cell>two_stage_op_amp</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (33.715,70.28;33.715,70.51)/(33.665,70.641;33.665,70.149)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'m1.2'</category>
+   <cell>two_stage_op_amp</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (33.435,70.149;33.435,70.641)/(33.385,70.51;33.385,70.28)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'m1.2'</category>
+   <cell>two_stage_op_amp</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (33.715,69.49;33.715,69.72)/(33.665,69.851;33.665,69.359)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'m1.2'</category>
+   <cell>two_stage_op_amp</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (33.435,69.359;33.435,69.851)/(33.385,69.72;33.385,69.49)</value>
+   </values>
+  </item>
  </items>
 </report-database>
