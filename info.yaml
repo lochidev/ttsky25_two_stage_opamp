@@ -59,6 +59,8 @@ pinout:
   ua[1]: "VN"
   ua[2]: "VP"
   ua[3]: "VOUT"
+  ua[4]: ""
+  ua[5]: ""
 
 # Do not change!
 yaml_version: 6
