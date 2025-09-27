@@ -1568,13 +1568,25 @@
   <item>
    <tags/>
    <category>'m2.4_a'</category>
-   <cell>enable_switches</cell>
+   <cell>two_stage_op_amp</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (18.025,18.34;18.025,18.49;18.175,18.49;18.175,18.34)</value>
+    <value>polygon: (23.57,23.535;23.57,23.685;23.72,23.685;23.72,23.535)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'m2.4_a'</category>
+   <cell>two_stage_op_amp</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (23.19,23.535;23.19,23.685;23.34,23.685;23.34,23.535)</value>
    </values>
   </item>
   <item>
@@ -1586,7 +1598,43 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (18.405,18.34;18.405,18.49;18.555,18.49;18.555,18.34)</value>
+    <value>polygon: (20.695,7.96;20.695,8.11;20.845,8.11;20.845,7.96)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'m2.4_a'</category>
+   <cell>enable_switches</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (21.075,7.96;21.075,8.11;21.225,8.11;21.225,7.96)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>m2_OFFGRID</category>
+   <cell>two_stage_op_amp</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (8.906,17.785;8.906,17.785)/(8.906,17.785;8.906,17.785)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>m2_OFFGRID</category>
+   <cell>two_stage_op_amp</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (8.906,18.87;8.906,18.87)/(8.906,18.87;8.906,18.87)</value>
    </values>
   </item>
  </items>
