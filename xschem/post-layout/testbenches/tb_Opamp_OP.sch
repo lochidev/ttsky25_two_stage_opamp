@@ -84,4 +84,4 @@ C {devices/launcher.sym} -490 -80 0 0 {name=h15
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
-C {../symbols/two_stage_op_amp.sym} -200 -210 0 0 {name=x1}
+C {/foss/designs/ttsky25_two_stage_opamp/xschem/post-layout/symbols/two_stage_op_amp.sym} -200 -210 0 0 {name=x1}
