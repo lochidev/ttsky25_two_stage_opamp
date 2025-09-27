@@ -1553,13 +1553,24 @@
    </references>
   </cell>
   <cell>
-   <name>enable_switches</name>
+   <name>n_diff_pair</name>
    <variant/>
-   <layout-name>enable_switches</layout-name>
+   <layout-name>n_diff_pair</layout-name>
    <references>
     <ref>
      <parent>two_stage_op_amp</parent>
-     <trans>r0 *1 0.91,5.66</trans>
+     <trans>r0 *1 9.475,23.36</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>high_xpo_res</name>
+   <variant/>
+   <layout-name>high_xpo_res</layout-name>
+   <references>
+    <ref>
+     <parent>two_stage_op_amp</parent>
+     <trans>m90 *1 51.655,49.495</trans>
     </ref>
    </references>
   </cell>
@@ -1567,74 +1578,122 @@
  <items>
   <item>
    <tags/>
-   <category>'m2.4_a'</category>
-   <cell>two_stage_op_amp</cell>
+   <category>'via.4a_a'</category>
+   <cell>n_diff_pair</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (23.57,23.535;23.57,23.685;23.72,23.685;23.72,23.535)</value>
+    <value>edge: (17.65,38.315;17.8,38.315)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'via.4a_a'</category>
+   <cell>n_diff_pair</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (17.8,38.165;17.65,38.165)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'via.4a_a'</category>
+   <cell>n_diff_pair</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (17.8,38.315;17.8,38.165)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'via.4a_a'</category>
+   <cell>n_diff_pair</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (17.65,37.995;17.8,37.995)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'via.4a_a'</category>
+   <cell>n_diff_pair</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (17.65,38.165;17.65,38.315)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'via.4a_a'</category>
+   <cell>n_diff_pair</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (17.65,37.845;17.65,37.995)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'via.4a_a'</category>
+   <cell>n_diff_pair</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (17.8,37.845;17.65,37.845)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'via.4a_a'</category>
+   <cell>n_diff_pair</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (17.8,37.995;17.8,37.845)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'m2.4_a'</category>
-   <cell>two_stage_op_amp</cell>
+   <cell>high_xpo_res</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (23.19,23.535;23.19,23.685;23.34,23.685;23.34,23.535)</value>
+    <value>polygon: (0.135,12.28;0.135,12.43;0.285,12.43;0.285,12.28)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'m2.4_a'</category>
-   <cell>enable_switches</cell>
+   <cell>high_xpo_res</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (20.695,7.96;20.695,8.11;20.845,8.11;20.845,7.96)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'m2.4_a'</category>
-   <cell>enable_switches</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>polygon: (21.075,7.96;21.075,8.11;21.225,8.11;21.225,7.96)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>m2_OFFGRID</category>
-   <cell>two_stage_op_amp</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (8.906,17.785;8.906,17.785)/(8.906,17.785;8.906,17.785)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>m2_OFFGRID</category>
-   <cell>two_stage_op_amp</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (8.906,18.87;8.906,18.87)/(8.906,18.87;8.906,18.87)</value>
+    <value>polygon: (0.135,12.6;0.135,12.75;0.285,12.75;0.285,12.6)</value>
    </values>
   </item>
  </items>
