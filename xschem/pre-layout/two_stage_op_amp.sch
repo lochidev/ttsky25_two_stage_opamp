@@ -417,9 +417,9 @@ sa=0 sb=0 sd=0
 model=nfet_01v8_lvt
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 240 -130 0 0 {name=C2 model=cap_mim_m3_1 W=25.5 L=25.5 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 240 -130 0 0 {name=C2 model=cap_mim_m3_1 W=16 L=16 MF=1 spiceprefix=X}
 C {sky130_fd_pr/res_xhigh_po_1p41.sym} 240 -220 0 0 {name=R1
-L=14
+L=2.4
 model=res_xhigh_po_1p41
 spiceprefix=X
 mult=1}
