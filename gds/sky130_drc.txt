@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <report-database>
  <description>SKY130 DRC runset</description>
- <original-file>/foss/designs/ttsky25_two_stage_opamp/gds/two_stage_op_amp_layout.gds</original-file>
+ <original-file>/foss/designs/ttsky25_two_stage_opamp/gds/two_stage_op_amp_layout_2.gds</original-file>
  <generator>drc: script='/foss/pdks/sky130A/libs.tech/klayout/macros/run_drc_full.lydrc'</generator>
  <top-cell>two_stage_op_amp</top-cell>
  <tags>
