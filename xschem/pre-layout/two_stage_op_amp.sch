@@ -306,9 +306,9 @@ C {lab_wire.sym} 110 130 2 0 {name=p15 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 90 0 2 0 {name=p16 sig_type=std_logic lab=VSS}
 C {ammeter.sym} 10 370 0 0 {name=Vmeas savecurrent=true spice_ignore=0}
 C {sky130_fd_pr/nfet_01v8_lvt.sym} -90 -140 0 0 {name=M1
-W=70
+W=42
 L=1
-nf=10
+nf=6
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
@@ -320,9 +320,9 @@ model=nfet_01v8_lvt
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 110 -140 0 1 {name=M2
-W=70
+W=42
 L=1
-nf=10
+nf=6
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
@@ -390,20 +390,6 @@ model=nfet_01v8_lvt
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8_lvt.sym} -10 0 0 0 {name=M9
-W=7
-L=1
-nf=1
-mult=1
-ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
-pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
-as="expr('int((@nf + 2)/2) * @W / @nf * 0.29')"
-ps="expr('2*int((@nf + 2)/2) * (@W / @nf + 0.29)')"
-nrd="expr('0.29 / @W ')" nrs="expr('0.29 / @W ')"
-sa=0 sb=0 sd=0
-model=nfet_01v8_lvt
-spiceprefix=X
-}
-C {sky130_fd_pr/nfet_01v8_lvt.sym} 310 0 0 0 {name=M10
 W=14
 L=1
 nf=2
@@ -417,9 +403,23 @@ sa=0 sb=0 sd=0
 model=nfet_01v8_lvt
 spiceprefix=X
 }
+C {sky130_fd_pr/nfet_01v8_lvt.sym} 310 0 0 0 {name=M10
+W=7
+L=1
+nf=1
+mult=1
+ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
+pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
+as="expr('int((@nf + 2)/2) * @W / @nf * 0.29')"
+ps="expr('2*int((@nf + 2)/2) * (@W / @nf + 0.29)')"
+nrd="expr('0.29 / @W ')" nrs="expr('0.29 / @W ')"
+sa=0 sb=0 sd=0
+model=nfet_01v8_lvt
+spiceprefix=X
+}
 C {sky130_fd_pr/cap_mim_m3_1.sym} 240 -130 0 0 {name=C2 model=cap_mim_m3_1 W=16 L=16 MF=1 spiceprefix=X}
 C {sky130_fd_pr/res_xhigh_po_1p41.sym} 240 -220 0 0 {name=R1
-L=2.4
+L=16
 model=res_xhigh_po_1p41
 spiceprefix=X
 mult=1}
