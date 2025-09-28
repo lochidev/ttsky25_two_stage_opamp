@@ -1,7 +1,7 @@
 # Tiny Tapeout project information
 project:
   title:        "A Low-power Single-ended Operational Amplifier using Sky130 PDK"      # Project title
-  author:       "R. M. L. M. Lochana Mihisara Katugaha"      # Your name
+  author:       "R. M. Lochana Mihisara Katugaha"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "A single-ended op-amp intended to function as a non-inverting unity-gain buffer."      # One line description of what your project does
   language:     "Analog" # other examples include Verilog, Amaranth, VHDL, etc
