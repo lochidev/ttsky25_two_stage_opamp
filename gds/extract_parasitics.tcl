@@ -1,10 +1,10 @@
 crashbackups stop
-load two_stage_op_amp
+load two_stage_opamp
 select top cell
-flatten two_stage_op_amp_flat
-load two_stage_op_amp_flat
-cellname delete two_stage_op_amp -noprompt
-cellname rename two_stage_op_amp_flat two_stage_op_amp
+flatten two_stage_opamp_flat
+load two_stage_opamp_flat
+cellname delete two_stage_opamp -noprompt
+cellname rename two_stage_opamp_flat two_stage_opamp
 select top cell
 extract do resistance
 extract all
