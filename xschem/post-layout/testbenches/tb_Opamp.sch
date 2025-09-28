@@ -5,29 +5,28 @@ V {}
 S {}
 F {}
 E {}
-N -20 -210 40 -210 {
+N -20 -190 40 -190 {
 lab=Vout}
-N 0 -170 0 -80 {
+N 0 -60 110 -60 {
 lab=GND}
-N 0 -80 110 -80 {
+N 110 -80 110 -60 {
 lab=GND}
-N 110 -100 110 -80 {
-lab=GND}
-N 110 -210 110 -160 {
+N 110 -190 110 -140 {
 lab=Vout}
-N 40 -210 110 -210 {
+N 40 -190 110 -190 {
 lab=Vout}
-N -20 -190 0 -190 {
-lab=GND}
-N 0 -190 0 -170 {
-lab=GND}
+N -30 -260 -10 -260 {lab=VDD}
+N -10 -260 -10 -240 {lab=VDD}
+N -30 -240 -10 -240 {lab=VDD}
+N -150 -60 -0 -60 {lab=GND}
+N -150 -120 -150 -60 {lab=GND}
 C {devices/code_shown.sym} -1340 -330 0 0 {name=SPICE1 only_toplevel=false value="
 *.option temp=27
 .option savecurrents
 .param VCC=1.8
 
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.include /foss/designs/ttsky25_two_stage_opamp/xschem/post-layout/spice/two_stage_op_amp.spice
+.include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
 vp Vp 0 DC 0.9 AC 0.001
 vn Vn 0 DC 0.9 AC -0.001
@@ -73,12 +72,11 @@ write tb_Opamp.raw
 C {devices/vsource.sym} -310 -30 0 0 {name=V1 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -310 0 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} -310 -60 1 0 {name=p2 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} -310 -210 0 0 {name=p3 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} -20 -260 0 1 {name=p4 sig_type=std_logic lab=VDD}
-C {devices/gnd.sym} 0 -80 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} -310 -250 0 0 {name=p7 sig_type=std_logic lab=Vn}
-C {devices/lab_pin.sym} -310 -270 0 0 {name=p8 sig_type=std_logic lab=Vp}
-C {devices/capa.sym} 110 -130 0 0 {name=C1
+C {devices/lab_pin.sym} -10 -260 0 1 {name=p4 sig_type=std_logic lab=VDD}
+C {devices/gnd.sym} 0 -60 0 0 {name=l2 lab=GND}
+C {devices/lab_pin.sym} -310 -240 0 0 {name=p7 sig_type=std_logic lab=Vn}
+C {devices/lab_pin.sym} -310 -260 0 0 {name=p8 sig_type=std_logic lab=Vp}
+C {devices/capa.sym} 110 -110 0 0 {name=C1
 m=1
 value=25p
 footprint=1206
@@ -86,6 +84,6 @@ device="ceramic capacitor"}
 C {devices/isource.sym} -200 -30 0 0 {name=I0 value=5u}
 C {devices/lab_pin.sym} -200 -60 1 0 {name=p9 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} -200 0 3 0 {name=p10 sig_type=std_logic lab=Ibias}
-C {devices/lab_pin.sym} -310 -230 0 0 {name=p11 sig_type=std_logic lab=Ibias}
-C {devices/lab_pin.sym} 110 -210 0 1 {name=p1 sig_type=std_logic lab=Vout}
-C {post-layout/symbols/two_stage_op_amp.sym} -170 -210 0 0 {name=x1}
+C {devices/lab_pin.sym} -170 -300 0 0 {name=p11 sig_type=std_logic lab=Ibias}
+C {devices/lab_pin.sym} 110 -190 0 1 {name=p1 sig_type=std_logic lab=Vout}
+C {ttsky25_two_stage_opamp.sym} -170 -210 0 0 {name=x1}

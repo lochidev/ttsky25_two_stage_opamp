@@ -89,4 +89,4 @@ value=10k
 footprint=1206
 device=resistor
 m=1}
-C {../symbols/two_stage_op_amp.sym} 100 -130 0 0 {name=x1}
+C {ttsky25_two_stage_opamp.sym} 100 -130 0 0 {name=x1}

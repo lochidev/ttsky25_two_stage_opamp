@@ -86,4 +86,4 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} -360 -240 0 0 {name=p11 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} 60 -220 0 1 {name=p1 sig_type=std_logic lab=Vout}
-C {../symbols/two_stage_op_amp.sym} -220 -220 0 0 {name=x1}
+C {ttsky25_two_stage_opamp.sym} -220 -220 0 0 {name=x1}
