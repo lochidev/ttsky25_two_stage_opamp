@@ -72,7 +72,7 @@ default_conditions:
     description: Output load capacitance
     display: CLoad
     unit: pF
-    maximum: 25
+    typical: 25
   corner:
     description: Process corner
     display: Corner
@@ -82,7 +82,10 @@ default_conditions:
     display: Temp
     unit: °C
     typical: 27
-
+  lib_file:
+    description: lib.spice file
+    display: Lib_file
+    typical: ngspice
 parameters:
   dc_params:
     display: DC Params
@@ -92,7 +95,7 @@ parameters:
         description: The DC gain in dB
         unit: dB
         minimum:
-          value: 60
+          value: 55
         typical:
           value: any
         maximum:
@@ -187,7 +190,7 @@ parameters:
         step: linear
         stepsize: 1
       corner:
-        typical: mc
+        enumerate: [ss_mm, tt_mm, ff_mm, fs_mm, sf_mm]
       temperature:
         minimum: 20
         typical: 27

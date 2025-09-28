@@ -79,7 +79,7 @@ C {devices/code_shown.sym} 660 90 0 0 {name=SETUP
 simulator=ngspice
 only_toplevel=false
 value="
-.lib CACE\{PDK_ROOT\}/CACE\{PDK\}/libs.tech/ngspice/sky130.lib.spice CACE\{corner\}
+.lib CACE\{PDK_ROOT\}/CACE\{PDK\}/libs.tech/CACE\{lib_file\}/sky130.lib.spice CACE\{corner\}
 
 .include CACE\{DUT_path\}
 
