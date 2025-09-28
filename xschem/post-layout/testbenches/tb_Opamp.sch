@@ -88,4 +88,4 @@ C {devices/lab_pin.sym} -200 -60 1 0 {name=p9 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} -200 0 3 0 {name=p10 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} -310 -230 0 0 {name=p11 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} 110 -210 0 1 {name=p1 sig_type=std_logic lab=Vout}
-C {/foss/designs/ttsky25_two_stage_opamp/xschem/post-layout/symbols/two_stage_op_amp.sym} -170 -210 0 0 {name=x1}
+C {post-layout/symbols/two_stage_op_amp.sym} -170 -210 0 0 {name=x1}

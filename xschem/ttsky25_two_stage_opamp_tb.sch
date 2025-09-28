@@ -151,7 +151,7 @@ let tstep = 0.001*tper
 
 op
 remzerovec
-write two_stage_op_amp.raw
+write ttsky25_two_stage_opamp_tb.raw
 echo ---xm2---
 let gds2 = @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gds]
 let ro2 = 1/gds2
