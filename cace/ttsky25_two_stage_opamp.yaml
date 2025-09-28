@@ -158,7 +158,7 @@ parameters:
     spec:
       gain_max:
         minimum:
-          value: 60
+          value: any
         typical:
           value: any
         maximum:
