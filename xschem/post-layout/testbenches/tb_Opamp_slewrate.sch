@@ -5,29 +5,29 @@ V {}
 S {}
 F {}
 E {}
-N -70 -220 -10 -220 {
+N -70 -200 -10 -200 {
 lab=Vout}
-N -50 -180 -50 -90 {
+N -50 -70 60 -70 {
 lab=GND}
-N -50 -90 60 -90 {
+N 60 -90 60 -70 {
 lab=GND}
-N 60 -110 60 -90 {
-lab=GND}
-N 60 -220 60 -170 {
+N 60 -200 60 -150 {
 lab=Vout}
-N -10 -220 60 -220 {
+N -10 -200 60 -200 {
 lab=Vout}
-N -70 -200 -50 -200 {
-lab=GND}
-N -50 -200 -50 -180 {
-lab=GND}
+N -80 -270 -60 -270 {lab=VDD}
+N -60 -270 -60 -250 {lab=VDD}
+N -80 -250 -60 -250 {lab=VDD}
+N -200 -130 -60 -130 {lab=GND}
+N -60 -130 -60 -70 {lab=GND}
+N -60 -70 -50 -70 {lab=GND}
 C {devices/code_shown.sym} -1440 -330 0 0 {name=SPICE1 only_toplevel=false value="
 .option temp=27
 .option savecurrents
 .param VCC=1.8
 
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.include /foss/designs/ttsky25_two_stage_opamp/xschem/post-layout/spice/two_stage_op_amp.spice
+.include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
 *vdd VDD 0 DC \{VCC\}
 *vss VSS 0 0
@@ -68,22 +68,21 @@ write tb_Opamp_slewrate.raw
 
 .end
 "}
-C {devices/vsource.sym} -310 -30 0 0 {name=V1 value=1.8 savecurrent=false}
-C {devices/gnd.sym} -310 0 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} -310 -60 1 0 {name=p2 sig_type=std_logic lab=VDD}
-C {devices/isource.sym} -200 -30 0 0 {name=I0 value=5u}
-C {devices/lab_pin.sym} -200 -60 1 0 {name=p9 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} -200 0 3 0 {name=p10 sig_type=std_logic lab=Ibias}
-C {devices/lab_pin.sym} -360 -220 0 0 {name=p3 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} -70 -270 0 1 {name=p4 sig_type=std_logic lab=VDD}
-C {devices/gnd.sym} -50 -90 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} -360 -260 0 0 {name=p7 sig_type=std_logic lab=Vn}
-C {devices/lab_pin.sym} -360 -280 0 0 {name=p8 sig_type=std_logic lab=Vp}
-C {devices/capa.sym} 60 -140 0 0 {name=C1
+C {devices/vsource.sym} -310 10 0 0 {name=V1 value=1.8 savecurrent=false}
+C {devices/gnd.sym} -310 40 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} -310 -20 1 0 {name=p2 sig_type=std_logic lab=VDD}
+C {devices/isource.sym} -200 10 0 0 {name=I0 value=5u}
+C {devices/lab_pin.sym} -200 -20 1 0 {name=p9 sig_type=std_logic lab=VDD}
+C {devices/lab_pin.sym} -200 40 3 0 {name=p10 sig_type=std_logic lab=Ibias}
+C {devices/lab_pin.sym} -60 -270 0 1 {name=p4 sig_type=std_logic lab=VDD}
+C {devices/gnd.sym} -50 -70 0 0 {name=l2 lab=GND}
+C {devices/lab_pin.sym} -360 -250 0 0 {name=p7 sig_type=std_logic lab=Vn}
+C {devices/lab_pin.sym} -360 -270 0 0 {name=p8 sig_type=std_logic lab=Vp}
+C {devices/capa.sym} 60 -120 0 0 {name=C1
 m=1
 value=25p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_pin.sym} -360 -240 0 0 {name=p11 sig_type=std_logic lab=Ibias}
-C {devices/lab_pin.sym} 60 -220 0 1 {name=p1 sig_type=std_logic lab=Vout}
+C {devices/lab_pin.sym} -220 -310 0 0 {name=p11 sig_type=std_logic lab=Ibias}
+C {devices/lab_pin.sym} 60 -200 0 1 {name=p1 sig_type=std_logic lab=Vout}
 C {ttsky25_two_stage_opamp.sym} -220 -220 0 0 {name=x1}
