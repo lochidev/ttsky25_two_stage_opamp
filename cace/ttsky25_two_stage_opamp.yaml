@@ -154,6 +154,48 @@ parameters:
         typical: 27
         maximum: 50
 
+  gain_mm_ngspice:
+    description: DC gain Mismatch
+    display: DC gain MM
+    unit: dB
+    spec:
+      gain_max:
+        minimum:
+          value: any
+        typical:
+          value: any
+        maximum:
+          value: any
+    tool:
+      ngspice:
+        template: ac.sch
+        # Merge runs with the same conditions
+        # but different iterations
+        # This is used for plotting
+        collate: iterations
+        format: ascii
+        suffix: .data
+        variables: [gain_max, null, null]
+    plot:
+      gain_mm:
+        type: histogram
+        xaxis: gain_max
+        limits: auto
+    conditions:
+      iterations:
+        description: Iterations to run
+        display: Iterations
+        minimum: 1
+        maximum: 240
+        step: linear
+        stepsize: 1
+      corner:
+        enumerate: [ss_mm, tt_mm, ff_mm, fs_mm, sf_mm]
+      temperature:
+        minimum: 20
+        typical: 27
+        maximum: 50
+
   gain_mc:
     description: DC gain Monte Carlo
     display: DC gain MC
@@ -186,11 +228,13 @@ parameters:
         description: Iterations to run
         display: Iterations
         minimum: 1
-        maximum: 400
+        maximum: 134
         step: linear
         stepsize: 1
       corner:
-        enumerate: [ss_mm, tt_mm, ff_mm, fs_mm, sf_mm]
+        typical: mc
+      lib_file:
+        typical: combined
       temperature:
         minimum: 20
         typical: 27
@@ -236,7 +280,7 @@ parameters:
         minimum: ss
         typical: tt
         maximum: ff
-
+  
   magic_area:
     spec:
       area:
