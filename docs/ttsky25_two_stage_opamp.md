@@ -65,7 +65,7 @@
   + Description: Output load capacitance
   + Display: CLoad
   + Unit: pF
-  + Maximum: 25
+  + Typical: 25
 - corner
   + Description: Process corner
   + Display: Corner
@@ -75,6 +75,10 @@
   + Display: Temp
   + Unit: °C
   + Typical: 27
+- lib_file
+  + Description: lib.spice file
+  + Display: Lib_file
+  + Typical: ngspice
 
 ## Symbol
 
