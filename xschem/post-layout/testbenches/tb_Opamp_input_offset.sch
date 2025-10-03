@@ -20,41 +20,27 @@ N 330 -250 330 -230 {lab=VDD}
 N 310 -230 330 -230 {lab=VDD}
 N 190 -110 190 -50 {lab=GND}
 N 190 -50 340 -50 {lab=GND}
-C {devices/code_shown.sym} -1070 -330 0 0 {name=SPICE1 only_toplevel=false value="
+N -70 -230 30 -230 {lab=#net1}
+N -70 -340 -70 -230 {lab=#net1}
+N 410 -340 410 -180 {lab=Vout}
+N -70 -340 90 -340 {lab=#net1}
+N 150 -340 410 -340 {lab=Vout}
+C {devices/code_shown.sym} -970 -340 0 0 {name=SPICE1 only_toplevel=false value="
 *.option temp=27
 .option savecurrents
 .param VCC=1.8
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
-*vdd VDD 0 DC \{VCC\}
-*vss VSS 0 0
+vp Vp 0 DC 0.9
 
-*ven EN 0 DC\{VCC\}
-
-*vp Vp 0 DC 0
-*vn Vn 0 DC 0.9
-
-*vp Vp 0 DC 0.9 AC 0.001
-*vn Vn 0 DC 0.9 AC -0.001
-vp Vp 0 SIN(0.0 0.001 100k)
-vn Vn 0 SIN(0.0 -0.001 100k)
-
-*ibias Ibias vss 5u
-
-*Cload Vout 0 500f
-
-*.nodeset v(vout)=0.6 v(vp)=0.6 v(vn)=0.6
 .op
-*.dc Vp 0.7 1.1 1m
-*.tran 0.01u 100u 1n
-*.ac dec 100 1 10Meg
 .save all
-
-
 .control
 	run
 	display
+	let in_offset = 0.9 - v(Vout)
+	print in_offset
 	write tb_Opamp_input_offset.raw
 .endc
 
@@ -68,7 +54,6 @@ C {devices/lab_pin.sym} 170 -50 1 0 {name=p9 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} 170 10 3 0 {name=p10 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} 330 -250 0 1 {name=p4 sig_type=std_logic lab=VDD}
 C {devices/gnd.sym} 340 -50 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} 30 -230 0 0 {name=p7 sig_type=std_logic lab=Vn}
 C {devices/lab_pin.sym} 30 -250 0 0 {name=p8 sig_type=std_logic lab=Vp}
 C {devices/capa.sym} 450 -100 0 0 {name=C1
 m=1
@@ -82,3 +67,8 @@ descr="Annotate OP"
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
 C {ttsky25_two_stage_opamp.sym} 170 -200 0 0 {name=x1}
+C {res.sym} 120 -340 1 0 {name=R1
+value=10k
+footprint=1206
+device=resistor
+m=1}
