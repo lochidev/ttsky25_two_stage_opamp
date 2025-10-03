@@ -5,21 +5,18 @@ V {}
 S {}
 F {}
 E {}
-N -20 -190 40 -190 {
-lab=Vout}
-N 0 -60 110 -60 {
+N -10 -150 100 -150 {
 lab=GND}
-N 110 -80 110 -60 {
+N 100 -170 100 -150 {
 lab=GND}
-N 110 -190 110 -140 {
+N 100 -280 100 -230 {
 lab=Vout}
-N 40 -190 110 -190 {
-lab=Vout}
-N -30 -260 -10 -260 {lab=VDD}
-N -10 -260 -10 -240 {lab=VDD}
-N -30 -240 -10 -240 {lab=VDD}
-N -150 -60 -0 -60 {lab=GND}
-N -150 -120 -150 -60 {lab=GND}
+N -160 -150 -10 -150 {lab=GND}
+N -160 -210 -160 -150 {lab=GND}
+N 0 -300 100 -300 {lab=Vout}
+N 100 -300 100 -280 {lab=Vout}
+N -160 -420 -160 -390 {lab=VDD}
+N -160 -390 -140 -390 {lab=VDD}
 C {devices/code_shown.sym} -1340 -330 0 0 {name=SPICE1 only_toplevel=false value="
 *.option temp=27
 .option savecurrents
@@ -30,16 +27,7 @@ C {devices/code_shown.sym} -1340 -330 0 0 {name=SPICE1 only_toplevel=false value
 
 vp Vp 0 DC 0.9 AC 0.001
 vn Vn 0 DC 0.9 AC -0.001
-*vp Vp 0 SIN(0.9 0.001 100k)
-*vn Vn 0 SIN(0.9 -0.001 100k)
-
-*.op
-*.dc Vp 0.7 1.1 1m
-*.tran 0.01u 100u 1n
-*.ac dec 100 1 10Meg
 .save all
-
-
 .control
 	run
 	foreach tempval 20 50
@@ -63,7 +51,6 @@ vn Vn 0 DC 0.9 AC -0.001
 		print phase_margin
 
 	end
-	*display
 write tb_Opamp.raw
 .endc
 
@@ -72,11 +59,11 @@ write tb_Opamp.raw
 C {devices/vsource.sym} -310 -30 0 0 {name=V1 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -310 0 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} -310 -60 1 0 {name=p2 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} -10 -260 0 1 {name=p4 sig_type=std_logic lab=VDD}
-C {devices/gnd.sym} 0 -60 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} -310 -240 0 0 {name=p7 sig_type=std_logic lab=Vn}
-C {devices/lab_pin.sym} -310 -260 0 0 {name=p8 sig_type=std_logic lab=Vp}
-C {devices/capa.sym} 110 -110 0 0 {name=C1
+C {devices/lab_pin.sym} -160 -420 0 1 {name=p4 sig_type=std_logic lab=VDD}
+C {devices/gnd.sym} -10 -150 0 0 {name=l2 lab=GND}
+C {devices/lab_pin.sym} -300 -260 0 0 {name=p7 sig_type=std_logic lab=Vn}
+C {devices/lab_pin.sym} -300 -340 0 0 {name=p8 sig_type=std_logic lab=Vp}
+C {devices/capa.sym} 100 -200 0 0 {name=C1
 m=1
 value=25p
 footprint=1206
@@ -84,6 +71,6 @@ device="ceramic capacitor"}
 C {devices/isource.sym} -200 -30 0 0 {name=I0 value=5u}
 C {devices/lab_pin.sym} -200 -60 1 0 {name=p9 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} -200 0 3 0 {name=p10 sig_type=std_logic lab=Ibias}
-C {devices/lab_pin.sym} -170 -300 0 0 {name=p11 sig_type=std_logic lab=Ibias}
-C {devices/lab_pin.sym} 110 -190 0 1 {name=p1 sig_type=std_logic lab=Vout}
-C {ttsky25_two_stage_opamp.sym} -170 -210 0 0 {name=x1}
+C {devices/lab_pin.sym} -140 -210 2 0 {name=p11 sig_type=std_logic lab=Ibias}
+C {devices/lab_pin.sym} 100 -300 0 1 {name=p1 sig_type=std_logic lab=Vout}
+C {ttsky25_two_stage_opamp.sym} -150 -300 0 0 {name=x1}

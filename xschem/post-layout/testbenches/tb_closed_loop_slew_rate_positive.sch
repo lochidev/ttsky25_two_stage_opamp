@@ -5,32 +5,31 @@ V {}
 S {}
 F {}
 E {}
-N 250 -120 310 -120 {
-lab=Vout}
-N 270 10 380 10 {
+N 180 60 290 60 {
 lab=GND}
-N 380 -10 380 10 {
+N 290 40 290 60 {
 lab=GND}
-N 380 -120 380 -70 {
+N 290 -70 290 -20 {
 lab=Vout}
-N 310 -120 380 -120 {
+N 220 -70 290 -70 {
 lab=Vout}
-N -100 -260 -100 -170 {lab=Vn}
-N -100 -170 -90 -170 {lab=Vn}
-N -90 -170 -50 -170 {lab=Vn}
-N -100 -260 -50 -260 {lab=Vn}
-N 10 -260 310 -260 {lab=Vout}
-N 310 -220 310 -120 {lab=Vout}
-N -50 -170 -40 -170 {lab=Vn}
-N 310 -260 310 -240 {lab=Vout}
-N 310 -240 310 -230 {lab=Vout}
-N 240 -190 250 -190 {lab=VDD}
-N 250 -190 250 -180 {lab=VDD}
-N 250 -180 250 -170 {lab=VDD}
-N 240 -170 250 -170 {lab=VDD}
-N 310 -230 310 -220 {lab=Vout}
-N 120 -50 120 10 {lab=GND}
-N 120 10 270 10 {lab=GND}
+N -190 -250 -190 -160 {lab=Vn}
+N -190 -250 -140 -250 {lab=Vn}
+N -80 -250 220 -250 {lab=Vout}
+N 220 -170 220 -70 {lab=Vout}
+N 220 -250 220 -230 {lab=Vout}
+N 220 -190 220 -180 {lab=Vout}
+N 220 -180 220 -170 {lab=Vout}
+N 30 60 180 60 {lab=GND}
+N 10 -10 10 60 {lab=GND}
+N 10 60 30 60 {lab=GND}
+N 30 -10 30 10 {lab=Ibias}
+N -190 -160 -190 -120 {lab=Vn}
+N 220 -230 220 -190 {lab=Vout}
+N 10 -190 30 -190 {lab=VDD}
+N 170 -100 220 -100 {lab=Vout}
+N -190 -120 -190 -60 {lab=Vn}
+N -190 -60 -130 -60 {lab=Vn}
 C {devices/vsource.sym} 50 215 0 0 {name=V1 value=" DC 1.8" savecurrent=false}
 C {devices/gnd.sym} 50 245 0 0 {name=l2 lab=GND}
 C {devices/lab_pin.sym} 50 185 1 0 {name=p2 sig_type=std_logic lab=VDD}
@@ -44,16 +43,9 @@ C {devices/code_shown.sym} -1190 -290 0 0 {name=SPICE1 only_toplevel=false value
 
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .include /foss/designs/ttsky25_two_stage_opamp/xschem/post-layout/spice/two_stage_op_amp.spice
-*vp Vp 0 DC 0.9 AC 0.001
-*vn Vn 0 DC 0.9 AC -0.001
-vp Vp 0 PULSE(0.9 1.1 150n 1n 1n 1200n 2400n)
-*vn Vn 0 Vout
 
+vp Vp 0 PULSE(0.9 1.3 150n 1n 1n 1200n 2400n)
 
-*.op
-*.dc Vp 0.7 1.1 1m
-*.tran 0.01u 100u 1n
-*.ac dec 100 1 10Meg
 .save all
 
 
@@ -72,20 +64,20 @@ write tb_closed_loop_slew_rate_positive.raw
 
 .end
 "}
-C {devices/lab_pin.sym} 250 -180 0 1 {name=p4 sig_type=std_logic lab=VDD}
-C {devices/gnd.sym} 270 10 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} -40 -170 0 0 {name=p7 sig_type=std_logic lab=Vn}
-C {devices/lab_pin.sym} -40 -190 0 0 {name=p8 sig_type=std_logic lab=Vp}
-C {devices/capa.sym} 380 -40 0 0 {name=C1
+C {devices/lab_pin.sym} 10 -190 3 1 {name=p4 sig_type=std_logic lab=VDD}
+C {devices/gnd.sym} 180 60 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} -130 -60 0 0 {name=p7 sig_type=std_logic lab=Vn}
+C {devices/lab_pin.sym} -130 -140 0 0 {name=p8 sig_type=std_logic lab=Vp}
+C {devices/capa.sym} 290 10 0 0 {name=C1
 m=1
 value=25p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_pin.sym} 100 -230 0 0 {name=p11 sig_type=std_logic lab=Ibias}
-C {devices/lab_pin.sym} 380 -120 0 1 {name=p1 sig_type=std_logic lab=Vout}
-C {res.sym} -20 -260 1 0 {name=R1
+C {devices/lab_pin.sym} 30 10 2 0 {name=p11 sig_type=std_logic lab=Ibias}
+C {devices/lab_pin.sym} 290 -70 0 1 {name=p1 sig_type=std_logic lab=Vout}
+C {res.sym} -110 -250 1 0 {name=R1
 value=10k
 footprint=1206
 device=resistor
 m=1}
-C {ttsky25_two_stage_opamp.sym} 100 -140 0 0 {name=x1}
+C {ttsky25_two_stage_opamp.sym} 20 -100 0 0 {name=x1}

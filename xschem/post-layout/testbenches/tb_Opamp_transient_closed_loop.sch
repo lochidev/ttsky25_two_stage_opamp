@@ -22,6 +22,10 @@ N -180 -200 -180 -180 {lab=Ibias}
 N -40 -290 -40 -270 {lab=Vout}
 N -200 -400 -200 -380 {lab=VDD}
 N -200 -380 -180 -380 {lab=VDD}
+N 20 -430 20 -270 {lab=Vout}
+N -390 -430 20 -430 {lab=Vout}
+N -390 -430 -390 -250 {lab=Vout}
+N -390 -250 -340 -250 {lab=Vout}
 C {devices/code_shown.sym} -1370 -360 0 0 {name=SPICE1 only_toplevel=false value="
 *.option temp=27
 .option savecurrents
@@ -30,8 +34,9 @@ C {devices/code_shown.sym} -1370 -360 0 0 {name=SPICE1 only_toplevel=false value
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
-vp Vp 0 SIN(0.9 0.001 10k)
-vn Vn 0 SIN(0.9 -0.001 10k)
+vp Vp 0 SIN(0.9 0.6 10k)
+*vn Vn 0 SIN(0.9 -0.001 10k)
+
 .save all
 
 
@@ -45,7 +50,7 @@ vn Vn 0 SIN(0.9 -0.001 10k)
 	tran $&tstep $&tstop
 	meas tran vo_max MAX v(Vout)
 	meas tran vo_min MIN v(Vout)
-	plot v(vp) v(vn) v(Vout)
+	plot v(vp)  v(Vout)
 	*display
 write tb_Opamp_transient.raw
 .endc
@@ -60,7 +65,6 @@ C {devices/lab_pin.sym} -200 -60 1 0 {name=p9 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} -200 0 3 0 {name=p10 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} -200 -400 0 1 {name=p4 sig_type=std_logic lab=VDD}
 C {devices/gnd.sym} -20 -140 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} -340 -250 0 0 {name=p7 sig_type=std_logic lab=Vn}
 C {devices/lab_pin.sym} -340 -330 0 0 {name=p8 sig_type=std_logic lab=Vp}
 C {devices/capa.sym} 90 -190 0 0 {name=C1
 m=1

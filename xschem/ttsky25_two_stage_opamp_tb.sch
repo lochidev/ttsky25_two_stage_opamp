@@ -134,8 +134,8 @@ Vss vss 0 0
 *Bvn vn 0 V = vcm - V(vdiff)/2
 
 *AC small signal*
-Vp vp 0 vcm AC
-Vn vn 0 vcm AC -1
+Vp vp 0 vcm AC 0.001
+Vn vn 0 vcm AC -0.001
 
 **Simulation
 .option temp=27 gmin=1e-12
