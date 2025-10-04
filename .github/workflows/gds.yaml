@@ -14,10 +14,9 @@ jobs:
           submodules: recursive
 
       - name: Read top module name
-        uses: mikefarah/yq@v4
         id: top_module
-        with:
-          cmd: echo TOP_MODULE=`yq '.project.top_module' info.yaml` > $GITHUB_OUTPUT
+        run: |
+          echo TOP_MODULE=`yq '.project.top_module' info.yaml` | tee $GITHUB_OUTPUT
 
       - name: Create and publish the GDS artifact
         uses: TinyTapeout/tt-gds-action/custom_gds@ttsky25b
@@ -26,6 +25,7 @@ jobs:
           gds_path: gds/${{ steps.top_module.outputs.TOP_MODULE }}.gds
           lef_path: lef/${{ steps.top_module.outputs.TOP_MODULE }}.lef
           verilog_path: src/project.v
+          pdk: sky130A
 
   precheck:
     needs: gds
@@ -33,8 +33,6 @@ jobs:
     steps:
       - name: Run Tiny Tapeout Precheck
         uses: TinyTapeout/tt-gds-action/precheck@ttsky25b
-        with:
-          pdk: sky130
 
   viewer:
     needs: gds
@@ -44,5 +42,3 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
     steps:
       - uses: TinyTapeout/tt-gds-action/viewer@ttsky25a
-        with:
-          pdk: sky130
