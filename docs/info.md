@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 This is a single-ended op-amp circuit design using the SKY130 PDK, intended to function as a non-inverting unity-gain buffer for low-frequency analog signals (1–10 kHz).
-Please see https://github.com/lochidev/ttsky25_two_stage_opamp/blob/main/docs/Report%20On%20Design%20Task%20-%20Work%20In%20Progress.pdf
+For specifications please see https://github.com/lochidev/ttsky25_two_stage_opamp/blob/main/docs/Report%20On%20Design%20Task%20-%20Work%20In%20Progress.pdf
 
 ## How to test
 
