@@ -9,8 +9,8 @@
 | Unity Gain Frequency | ngspice              | ugf                  |           1 MHz | 13.867 MHz |          any | 16.517 MHz |          any | 19.377 MHz |   Pass ✅    |
 | Phase Margin         | ngspice              | pm                   |            60 ° |   63.248 ° |          any |   64.702 ° |          any |   65.757 ° |   Pass ✅    |
 | DC gain MC           | ngspice              | gain_max             |             any |  35.291 dB |          any |  64.000 dB |          any |  69.157 dB |   Pass ✅    |
-| Unity Gain Frequency | ngspice              | ugf                  |           1 MHz | 10.166 MHz |          any | 16.221 MHz |          any | 18.297 MHz |   Pass ✅    |
-| Phase Margin         | ngspice              | pm                   |            60 ° |   64.171 ° |          any |   65.045 ° |          any |   70.337 ° |   Pass ✅    |
+| Unity Gain Frequency MC | ngspice              | ugf                  |           1 MHz | 10.166 MHz |          any | 16.221 MHz |          any | 18.297 MHz |   Pass ✅    |
+| Phase Margin MC      | ngspice              | pm                   |            60 ° |   64.171 ° |          any |   65.045 ° |          any |   70.337 ° |   Pass ✅    |
 | Area                 | magic_area           | area                 |               ​ |          ​ |            ​ |          ​ |    11200 µm² | 2777.110 µm² |   Pass ✅    |
 | Width                | magic_area           | width                |               ​ |          ​ |            ​ |          ​ |          any |  48.500 µm |   Pass ✅    |
 | Height               | magic_area           | height               |               ​ |          ​ |            ​ |          ​ |          any |  57.260 µm |   Pass ✅    |

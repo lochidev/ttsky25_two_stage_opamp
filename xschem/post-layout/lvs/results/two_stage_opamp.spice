@@ -1,6 +1,6 @@
-* NGSPICE file created from two_stage_op_amp.ext - technology: sky130A
+* NGSPICE file created from ttsky25_two_stage_opamp.ext - technology: sky130A
 
-.subckt two_stage_op_amp IBIAS EN VOUT VDD VN VP VSS
+.subckt two_stage_opamp IBIAS EN VOUT VN VP VDD VSS
 X0 VSS VSS VSS VSS sky130_fd_pr__nfet_01v8_lvt ad=1.015 pd=7.29 as=72.5 ps=531.32001 w=7 l=1
 X1 VDD a_2479_7336# VOUT VDD sky130_fd_pr__pfet_01v8 ad=0.145 pd=1.29 as=0.145 ps=1.29 w=1 l=0.4
 X2 VSS a_2080_2896# a_2080_2896# VSS sky130_fd_pr__nfet_01v8_lvt ad=0.435 pd=3.29 as=0.435 ps=3.29 w=3 l=1

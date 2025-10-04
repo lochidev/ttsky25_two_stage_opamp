@@ -167,7 +167,7 @@ parameters:
         maximum:
           value: any
       ugf:
-        display: Unity Gain Frequency
+        display: Unity Gain Frequency MC
         description: The unity gain frequency
         unit: MHz
         minimum:
@@ -177,7 +177,7 @@ parameters:
         maximum:
           value: any
       pm:
-        display: Phase Margin
+        display: Phase Margin MC
         description: The phase margin 
         unit: °
         minimum:
