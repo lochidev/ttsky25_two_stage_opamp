@@ -5,9 +5,9 @@ V {}
 S {}
 F {}
 E {}
-N 570 50 590 50 {
+N 570 30 590 30 {
 lab=Vout}
-N 590 50 590 70 {
+N 590 30 590 50 {
 lab=Vout}
 N 50 170 50 190 {
 lab=GND}
@@ -61,20 +61,18 @@ N 190 410 230 410 {
 lab=GND}
 N 190 370 230 370 {
 lab=#net1}
-N 560 -20 600 -20 {lab=VDD}
-N 600 -20 600 0 {lab=VDD}
-N 560 0 600 0 {lab=VDD}
+N 410 -60 430 -60 {lab=VDD}
 C {devices/isource.sym} 210 140 0 0 {name=I0 value=CACE\{ibias\}}
-C {devices/lab_wire.sym} 600 -20 0 0 {name=p2 sig_type=std_logic lab=VDD}
-C {devices/capa.sym} 590 100 0 0 {name=C1
+C {devices/lab_wire.sym} 410 -60 0 0 {name=p2 sig_type=std_logic lab=VDD}
+C {devices/capa.sym} 590 80 0 0 {name=C1
 m=1
 value=CACE\{cl\}
 footprint=1206
 device="ceramic capacitor"}
-C {devices/gnd.sym} 590 130 0 0 {name=l2 lab=GND}
-C {devices/lab_wire.sym} 280 -20 0 0 {name=p3 sig_type=std_logic lab=Vp}
-C {devices/lab_wire.sym} 280 0 0 0 {name=p4 sig_type=std_logic lab=Vn}
-C {devices/lab_wire.sym} 420 -60 0 0 {name=p7 sig_type=std_logic lab=Ibias}
+C {devices/gnd.sym} 590 110 0 0 {name=l2 lab=GND}
+C {devices/lab_wire.sym} 270 -10 0 0 {name=p3 sig_type=std_logic lab=Vp}
+C {devices/lab_wire.sym} 270 70 0 0 {name=p4 sig_type=std_logic lab=Vn}
+C {devices/lab_wire.sym} 430 120 2 0 {name=p7 sig_type=std_logic lab=Ibias}
 C {devices/code_shown.sym} 660 90 0 0 {name=SETUP
 simulator=ngspice
 only_toplevel=false
@@ -90,7 +88,7 @@ value="
 * Flag unsafe operating conditions (exceeds models' specified limits)
 .option warn=1
 "}
-C {devices/lab_wire.sym} 590 50 0 1 {name=p11 sig_type=std_logic lab=Vout}
+C {devices/lab_wire.sym} 590 30 0 1 {name=p11 sig_type=std_logic lab=Vout}
 C {devices/vsource.sym} 50 140 0 0 {name=V0 value=0 savecurrent=false}
 C {devices/gnd.sym} 50 210 0 0 {name=l3 lab=GND}
 C {devices/vsource.sym} 130 140 0 0 {name=V2 value=CACE\{vdd\} savecurrent=false}
@@ -107,7 +105,7 @@ C {devices/lab_wire.sym} 150 280 0 0 {name=p12 sig_type=std_logic lab=Vp}
 C {devices/lab_wire.sym} 310 280 0 0 {name=p13 sig_type=std_logic lab=Vn}
 C {devices/lab_wire.sym} 130 70 0 0 {name=p5 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} 210 70 0 0 {name=p6 sig_type=std_logic lab=VDD}
-C {devices/lab_wire.sym} 440 120 2 1 {name=p9 sig_type=std_logic lab=VSS}
+C {devices/lab_wire.sym} 410 120 2 1 {name=p9 sig_type=std_logic lab=VSS}
 C {ttsky25_two_stage_opamp.sym} 420 30 0 0 {name=x1}
 C {devices/code_shown.sym} 660 340 0 0 {name=CONTROL
 simulator=ngspice

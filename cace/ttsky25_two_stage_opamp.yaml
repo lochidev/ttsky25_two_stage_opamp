@@ -95,7 +95,7 @@ parameters:
         description: The DC gain in dB
         unit: dB
         minimum:
-          value: 55
+          value: 58
         typical:
           value: any
         maximum:
@@ -103,9 +103,9 @@ parameters:
       ugf:
         display: Unity Gain Frequency
         description: The unity gain frequency
-        unit: Hz
+        unit: MHz
         minimum:
-          value: 1e6
+          value: 1
         typical:
           value: any
         maximum:
@@ -154,48 +154,6 @@ parameters:
         typical: 27
         maximum: 50
 
-  gain_mm_ngspice:
-    description: DC gain Mismatch
-    display: DC gain MM
-    unit: dB
-    spec:
-      gain_max:
-        minimum:
-          value: any
-        typical:
-          value: any
-        maximum:
-          value: any
-    tool:
-      ngspice:
-        template: ac.sch
-        # Merge runs with the same conditions
-        # but different iterations
-        # This is used for plotting
-        collate: iterations
-        format: ascii
-        suffix: .data
-        variables: [gain_max, null, null]
-    plot:
-      gain_mm:
-        type: histogram
-        xaxis: gain_max
-        limits: auto
-    conditions:
-      iterations:
-        description: Iterations to run
-        display: Iterations
-        minimum: 1
-        maximum: 27
-        step: linear
-        stepsize: 1
-      corner:
-        enumerate: [ss_mm, tt_mm, ff_mm, fs_mm, sf_mm]
-      temperature:
-        minimum: 20
-        typical: 27
-        maximum: 50
-
   gain_mc:
     description: DC gain Monte Carlo
     display: DC gain MC
@@ -208,6 +166,27 @@ parameters:
           value: any
         maximum:
           value: any
+      ugf:
+        display: Unity Gain Frequency
+        description: The unity gain frequency
+        unit: MHz
+        minimum:
+          value: 1
+        typical:
+          value: any
+        maximum:
+          value: any
+      pm:
+        display: Phase Margin
+        description: The phase margin 
+        unit: °
+        minimum:
+          value: 60
+        typical:
+          value: any
+        maximum:
+          value: any
+
     tool:
       ngspice:
         template: ac.sch
@@ -217,18 +196,26 @@ parameters:
         collate: iterations
         format: ascii
         suffix: .data
-        variables: [gain_max, null, null]
+        variables: [gain_max, ugf, pm]
     plot:
       gain_mc:
         type: histogram
         xaxis: gain_max
+        limits: auto
+      ugf_mc:
+        type: histogram
+        xaxis: ugf
+        limits: auto
+      pm_mc:
+        type: histogram
+        xaxis: pm
         limits: auto
     conditions:
       iterations:
         description: Iterations to run
         display: Iterations
         minimum: 1
-        maximum: 134
+        maximum: 45
         step: linear
         stepsize: 1
       corner:
@@ -239,7 +226,10 @@ parameters:
         minimum: 20
         typical: 27
         maximum: 50
-
+      vdd:
+        minimum: 1.7
+        typical: 1.8
+        maximum: 1.9
   transient_response:
     description: Large signal transient response
     display: Large signal transient response

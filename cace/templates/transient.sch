@@ -46,14 +46,13 @@ lab=Vp}
 N 300 390 300 430 {
 lab=GND}
 N 470 260 510 260 {lab=Vn}
-N 470 90 470 260 {lab=Vn}
 N 770 120 810 120 {lab=Vout}
 N 760 120 770 120 {lab=Vout}
-N 760 120 760 140 {lab=Vout}
 N 730 290 770 290 {lab=Vout}
-N 750 70 780 70 {lab=VDD}
-N 750 90 770 90 {lab=VDD}
-N 770 70 770 90 {lab=VDD}
+N 460 160 460 260 {lab=Vn}
+N 460 260 470 260 {lab=Vn}
+N 600 -0 600 30 {lab=VDD}
+N 600 30 620 30 {lab=VDD}
 C {devices/code_shown.sym} 880 320 0 0 {name=CONTROL only_toplevel=false value="
 .control
 
@@ -65,16 +64,16 @@ C {devices/code_shown.sym} 880 320 0 0 {name=CONTROL only_toplevel=false value="
 .endc
 "}
 C {devices/isource.sym} 220 360 0 0 {name=I0 value=CACE\{ibias\}}
-C {devices/lab_wire.sym} 780 70 2 0 {name=p4 sig_type=std_logic lab=VDD}
+C {devices/lab_wire.sym} 600 0 2 0 {name=p4 sig_type=std_logic lab=VDD}
 C {devices/capa.sym} 830 170 0 0 {name=C1
 m=1
 value=CACE\{cl\}
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 830 200 0 0 {name=l2 lab=GND}
-C {devices/lab_wire.sym} 470 70 0 0 {name=p5 sig_type=std_logic lab=Vp}
-C {devices/lab_wire.sym} 470 90 0 0 {name=p6 sig_type=std_logic lab=Vn}
-C {devices/lab_wire.sym} 610 30 0 0 {name=p7 sig_type=std_logic lab=Ibias}
+C {devices/lab_wire.sym} 460 80 0 0 {name=p5 sig_type=std_logic lab=Vp}
+C {devices/lab_wire.sym} 460 160 0 0 {name=p6 sig_type=std_logic lab=Vn}
+C {devices/lab_wire.sym} 620 210 2 0 {name=p7 sig_type=std_logic lab=Ibias}
 C {devices/lab_wire.sym} 830 120 0 1 {name=p8 sig_type=std_logic lab=Vout}
 C {devices/vsource.sym} 60 360 0 0 {name=V0 value=0 savecurrent=false}
 C {devices/gnd.sym} 60 430 0 0 {name=l3 lab=GND}
@@ -83,7 +82,7 @@ C {devices/lab_wire.sym} 60 290 0 0 {name=p9 sig_type=std_logic lab=VSS}
 C {devices/lab_wire.sym} 220 430 2 0 {name=p10 sig_type=std_logic lab=Ibias}
 C {devices/lab_wire.sym} 140 290 0 0 {name=p12 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} 220 290 0 0 {name=p13 sig_type=std_logic lab=VDD}
-C {devices/lab_wire.sym} 630 210 2 1 {name=p14 sig_type=std_logic lab=VSS}
+C {devices/lab_wire.sym} 600 210 2 1 {name=p14 sig_type=std_logic lab=VSS}
 C {ttsky25_two_stage_opamp.sym} 610 120 0 0 {name=x2}
 C {devices/vcvs.sym} 690 310 0 1 {name=Evdrv1 value=1}
 C {devices/vsource.sym} 300 360 0 0 {name=V3 value="DC 0 PWL(0 0 100n 0 100.1n CACE\{vdd\})" savecurrent=false}

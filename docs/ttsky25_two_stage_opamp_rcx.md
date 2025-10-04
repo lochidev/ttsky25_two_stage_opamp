@@ -5,11 +5,12 @@
 
 |      Parameter       |         Tool         |     Result      | Min Limit  |  Min Value   | Typ Target |  Typ Value   | Max Limit  |  Max Value   |  Status  |
 | :------------------- | :------------------- | :-------------- | ---------: | -----------: | ---------: | -----------: | ---------: | -----------: | :------: |
-| DC gain              | ngspice              | gain_max             |           55 dB |  59.871 dB |          any |  65.573 dB |          any |  66.602 dB |   Pass ✅    |
-| Unity Gain Frequency | ngspice              | ugf                  |          1e6 Hz | 13868800.000 Hz |          any | 16518700.000 Hz |          any | 19379600.000 Hz |   Pass ✅    |
-| Phase Margin         | ngspice              | pm                   |            60 ° |   63.264 ° |          any |   64.720 ° |          any |   65.776 ° |   Pass ✅    |
-| DC gain MM           | ngspice              | gain_max             |             any |  -9.673 dB |          any |  24.761 dB |          any |  67.809 dB |   Pass ✅    |
-| DC gain MC           | ngspice              | gain_max             |             any |  35.740 dB |          any |  63.999 dB |          any |  69.992 dB |   Pass ✅    |
+| DC gain              | ngspice              | gain_max             |           58 dB |  59.872 dB |          any |  65.574 dB |          any |  66.604 dB |   Pass ✅    |
+| Unity Gain Frequency | ngspice              | ugf                  |           1 MHz | 13.867 MHz |          any | 16.517 MHz |          any | 19.377 MHz |   Pass ✅    |
+| Phase Margin         | ngspice              | pm                   |            60 ° |   63.248 ° |          any |   64.702 ° |          any |   65.757 ° |   Pass ✅    |
+| DC gain MC           | ngspice              | gain_max             |             any |  35.291 dB |          any |  64.000 dB |          any |  69.157 dB |   Pass ✅    |
+| Unity Gain Frequency | ngspice              | ugf                  |           1 MHz | 10.166 MHz |          any | 16.221 MHz |          any | 18.297 MHz |   Pass ✅    |
+| Phase Margin         | ngspice              | pm                   |            60 ° |   64.171 ° |          any |   65.045 ° |          any |   70.337 ° |   Pass ✅    |
 | Area                 | magic_area           | area                 |               ​ |          ​ |            ​ |          ​ |    11200 µm² | 2777.110 µm² |   Pass ✅    |
 | Width                | magic_area           | width                |               ​ |          ​ |            ​ |          ​ |          any |  48.500 µm |   Pass ✅    |
 | Height               | magic_area           | height               |               ​ |          ​ |            ​ |          ​ |          any |  57.260 µm |   Pass ✅    |
@@ -36,13 +37,17 @@
 
 ![pm_vs_vdd](./ttsky25_two_stage_opamp/rcx/pm_vs_vdd.png)
 
-## gain_mm
-
-![gain_mm](./ttsky25_two_stage_opamp/rcx/gain_mm.png)
-
 ## gain_mc
 
 ![gain_mc](./ttsky25_two_stage_opamp/rcx/gain_mc.png)
+
+## ugf_mc
+
+![ugf_mc](./ttsky25_two_stage_opamp/rcx/ugf_mc.png)
+
+## pm_mc
+
+![pm_mc](./ttsky25_two_stage_opamp/rcx/pm_mc.png)
 
 ## transient
 
