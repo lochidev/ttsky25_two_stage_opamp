@@ -8,9 +8,9 @@
 | DC gain              | ngspice              | gain_max             |           58 dB |  59.881 dB |          any |  65.574 dB |          any |  66.604 dB |   Pass ✅    |
 | Unity Gain Frequency | ngspice              | ugf                  |           1 MHz | 13.872 MHz |          any | 16.522 MHz |          any | 19.384 MHz |   Pass ✅    |
 | Phase Margin         | ngspice              | pm                   |            60 ° |   63.229 ° |          any |   64.678 ° |          any |   65.731 ° |   Pass ✅    |
-| DC gain MC           | ngspice              | gain_max             |             any |  35.292 dB |          any |  64.001 dB |          any |  69.158 dB |   Pass ✅    |
-| Unity Gain Frequency MC | ngspice              | ugf                  |           1 MHz | 10.170 MHz |          any | 16.226 MHz |          any | 18.303 MHz |   Pass ✅    |
-| Phase Margin MC      | ngspice              | pm                   |            60 ° |   64.144 ° |          any |   65.019 ° |          any |   70.315 ° |   Pass ✅    |
+| DC gain MC           | ngspice              | gain_max             |             any |  34.025 dB |          any |  63.663 dB |          any |  70.531 dB |   Pass ✅    |
+| Unity Gain Frequency MC | ngspice              | ugf                  |           1 MHz |  9.694 MHz |          any | 16.194 MHz |          any | 18.337 MHz |   Pass ✅    |
+| Phase Margin MC      | ngspice              | pm                   |            60 ° |   64.021 ° |          any |   65.009 ° |          any |   74.831 ° |   Pass ✅    |
 | Area                 | magic_area           | area                 |               ​ |          ​ |            ​ |          ​ |    11200 µm² | 2777.110 µm² |   Pass ✅    |
 | Width                | magic_area           | width                |               ​ |          ​ |            ​ |          ​ |          any |  48.500 µm |   Pass ✅    |
 | Height               | magic_area           | height               |               ​ |          ​ |            ​ |          ​ |          any |  57.260 µm |   Pass ✅    |
