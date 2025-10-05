@@ -1,35 +1,43 @@
 import csv
+import os
 
 def postprocess(results, conditions):
     """
-    Writes full Monte Carlo results (no truncation) to a CSV in the current folder.
-    
-    results: dict -> variables mapped to lists, e.g.
-        {
-          "gain_max": [...],
-          "ugf": [...],
-          "pm": [...]
-        }
-    conditions: dict -> typical conditions (corner, vdd, temperature, etc.)
+    Appends Monte Carlo results to a CSV in the current folder,
+    including only iteration, gain_max, ugf, pm, temperature, and vdd.
+    The file is not overwritten on subsequent calls.
     """
 
-    # Save CSV in current working directory
-    filename = "mc_results_full.csv"
+    filename = "docs/results/monte-carlo/mc_results_full.csv"
 
-    # Determine number of iterations
+    # Determine the number of iterations from any variable
     key_any = next(iter(results))
     n = len(results[key_any])
 
-    # Open CSV and write header + rows
-    with open(filename, "w", newline="") as f:
+    wanted_conditions = ["temperature", "vdd"]
+
+    # Check if file exists to avoid rewriting the header
+    file_exists = os.path.isfile(filename)
+
+    with open(filename, "a", newline="") as f:
         writer = csv.writer(f)
 
-        # Header = iteration + variable names
-        header = ["iteration"] + list(results.keys())
-        writer.writerow(header)
+        # Write header only once
+        if not file_exists:
+            header = ["iteration", "gain_max", "ugf", "pm"] + wanted_conditions
+            writer.writerow(header)
 
         for i in range(n):
-            row = [i + 1] + [results[var][i] for var in results.keys()]
+            row = [
+                i + 1,
+                results["gain_max"][i],
+                results["ugf"][i],
+                results["pm"][i],
+            ]
+
+            for key in wanted_conditions:
+                row.append(conditions.get(key, None))
+
             writer.writerow(row)
 
     return results
