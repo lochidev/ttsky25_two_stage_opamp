@@ -197,6 +197,8 @@ parameters:
         format: ascii
         suffix: .data
         variables: [gain_max, ugf, pm]
+        script: save_mc_csv.py
+        script_variables: [gain_max, ugf, pm]
     plot:
       gain_mc:
         type: histogram
