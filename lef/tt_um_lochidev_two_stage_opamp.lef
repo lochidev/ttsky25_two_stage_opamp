@@ -42,7 +42,7 @@ MACRO tt_um_lochidev_two_stage_opamp
     END
   END ua[1]
   PIN ua[2]
-    ANTENNAGATEAREA 64.599998 ;
+    ANTENNAGATEAREA 85.599998 ;
     ANTENNADIFFAREA 8.120000 ;
     PORT
       LAYER met4 ;
@@ -50,7 +50,7 @@ MACRO tt_um_lochidev_two_stage_opamp
     END
   END ua[2]
   PIN ua[3]
-    ANTENNAGATEAREA 64.599998 ;
+    ANTENNAGATEAREA 85.599998 ;
     ANTENNADIFFAREA 8.120000 ;
     PORT
       LAYER met4 ;
@@ -82,7 +82,7 @@ MACRO tt_um_lochidev_two_stage_opamp
     END
   END ua[7]
   PIN ui_in[0]
-    ANTENNAGATEAREA 64.599998 ;
+    ANTENNAGATEAREA 85.599998 ;
     ANTENNADIFFAREA 8.120000 ;
     PORT
       LAYER met4 ;
@@ -1630,8 +1630,8 @@ MACRO tt_um_lochidev_two_stage_opamp
         RECT 27.050 25.955 51.760 26.235 ;
         RECT 6.900 10.285 7.140 23.675 ;
         RECT 23.075 23.470 23.835 23.750 ;
-        RECT 10.210 22.595 24.860 23.330 ;
-        RECT 25.530 22.595 26.370 23.555 ;
+        RECT 25.530 23.330 26.370 23.555 ;
+        RECT 10.210 22.595 26.370 23.330 ;
         RECT 7.280 22.010 13.505 22.290 ;
         RECT 7.280 10.670 7.520 22.010 ;
         RECT 27.050 17.135 27.400 25.955 ;
