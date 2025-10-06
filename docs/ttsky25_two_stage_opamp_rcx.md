@@ -30,15 +30,15 @@
 
 ## gain_vs_temp
 
-![gain_vs_temp](./ttsky25_two_stage_opamp/rcx/gain_vs_temp.png)
+![gain_vs_temp](./ttsky25_two_stage_opamp/rcx/gain_vs_temp_ngspice.png)
 
 ## ugf_vs_corner
 
-![ugf_vs_corner](./ttsky25_two_stage_opamp/rcx/ugf_vs_corner.png)
+![ugf_vs_corner](./ttsky25_two_stage_opamp/rcx/ugf_vs_corner_ngspice.png)
 
 ## pm_vs_vdd
 
-![pm_vs_vdd](./ttsky25_two_stage_opamp/rcx/pm_vs_vdd.png)
+![pm_vs_vdd](./ttsky25_two_stage_opamp/rcx/pm_vs_vdd_ngspice.png)
 
 ## gain_vs_temp
 
