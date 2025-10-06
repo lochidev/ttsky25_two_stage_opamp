@@ -14,7 +14,7 @@ def postprocess(results, conditions):
     key_any = next(iter(results))
     n = len(results[key_any])
 
-    wanted_conditions = ["temperature", "vdd"]
+    wanted_conditions = ["temperature", "vdd", "vcm_diff"]
 
     # Check if file exists to avoid rewriting the header
     file_exists = os.path.isfile(filename)
