@@ -51,11 +51,11 @@
   + Display: Vdd
   + Unit: V
   + Typical: 1.8
-- vcm
-  + Description: Input common mode voltage
-  + Display: Vcm
+- vcm_diff
+  + Description: Input common mode voltage is (vdd/2 - vcm_diff V) – (vdd/2 + vcm_diff V)
+  + Display: vcm_diff
   + Unit: V
-  + Typical: 0.9
+  + Typical: 0
 - ibias
   + Description: Bias current
   + Display: Ibias

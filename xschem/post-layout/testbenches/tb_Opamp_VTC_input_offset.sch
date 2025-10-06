@@ -35,7 +35,7 @@ Bvn vn 0 V = vcm - V(vdiff)/2
 .save all
 .control
 
-dc vdiff -0.003 0.003 0.001m
+dc vdiff -0.003 0.003 0.005m
 let vin = vp -vn
 plot vin vout vdd
 meas dc in_offset find vdiff when vout=0.9

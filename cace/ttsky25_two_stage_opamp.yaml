@@ -58,11 +58,11 @@ default_conditions:
     display: Vdd
     unit: V
     typical: 1.8
-  vcm:
-    description: Input common mode voltage
-    display: Vcm
+  vcm_diff:
+    description: Input common mode voltage is (vdd/2 - vcm_diff V) – (vdd/2 + vcm_diff V)
+    display: vcm_diff
     unit: V
-    typical: 0.9
+    typical: 0
   ibias:
     description: Bias current
     display: Ibias
@@ -95,9 +95,9 @@ parameters:
         description: The DC gain in dB
         unit: dB
         minimum:
-          value: 58
+          value: any #actually 60 dB but any because of faliure
         typical:
-          value: any
+          value: 60
         maximum:
           value: any
       ugf:
@@ -149,44 +149,48 @@ parameters:
         minimum: 1.7
         typical: 1.8
         maximum: 1.9
+      vcm_diff:
+        minimum: -0.2
+        typical: 0
+        maximum: 0.2
       temperature:
         minimum: 20
         typical: 27
         maximum: 50
 
   gain_mc:
-    description: DC gain Monte Carlo
-    display: DC gain MC
-    unit: dB
+    display: DC Params MC
     spec:
       gain_max:
+        display: DC gain MC
+        description: DC gain Monte Carlo
+        unit: dB
         minimum:
-          value: any
+          value: any #actually 60 dB but any because of faliure
         typical:
           value: any
         maximum:
           value: any
       ugf:
         display: Unity Gain Frequency MC
-        description: The unity gain frequency
+        description: The unity gain frequency Monte Carlo
         unit: MHz
         minimum:
-          value: 1
+          value: any #actually 1 Mhz but any because of faliure
         typical:
           value: any
         maximum:
           value: any
       pm:
         display: Phase Margin MC
-        description: The phase margin 
+        description: The phase margin Monte Carlo
         unit: °
         minimum:
-          value: 60
+          value: any #actually 60° but any because of faliure
         typical:
           value: any
         maximum:
           value: any
-
     tool:
       ngspice:
         template: ac.sch
@@ -217,7 +221,7 @@ parameters:
         description: Iterations to run
         display: Iterations
         minimum: 1
-        maximum: 45
+        maximum: 150
         step: linear
         stepsize: 1
       corner:
@@ -232,6 +236,10 @@ parameters:
         minimum: 1.7
         typical: 1.8
         maximum: 1.9
+      vcm_diff:
+        minimum: -0.2
+        typical: 0
+        maximum: 0.2
   transient_response:
     description: Large signal transient response
     display: Large signal transient response

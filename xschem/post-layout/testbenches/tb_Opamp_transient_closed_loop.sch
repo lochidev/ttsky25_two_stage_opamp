@@ -26,15 +26,20 @@ N 20 -430 20 -270 {lab=Vout}
 N -390 -430 20 -430 {lab=Vout}
 N -390 -430 -390 -250 {lab=Vout}
 N -390 -250 -340 -250 {lab=Vout}
+N -430 -330 -400 -330 {lab=Vp}
+N -180 -180 -150 -180 {lab=Ibias}
+N -150 -180 -130 -180 {lab=Ibias}
+N -0 -270 0 -240 {lab=Vout}
+N 0 -180 0 -140 {lab=GND}
 C {devices/code_shown.sym} -1370 -360 0 0 {name=SPICE1 only_toplevel=false value="
-*.option temp=27
+.option temp=20
 .option savecurrents
 .param VCC=1.8
 
-.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice sf
 .include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
-vp Vp 0 SIN(0.9 0.6 10k)
+vp Vp 0 SIN(0.9 0.2 10k)
 *vn Vn 0 SIN(0.9 -0.001 10k)
 
 .save all
@@ -52,7 +57,8 @@ vp Vp 0 SIN(0.9 0.6 10k)
 	meas tran vo_min MIN v(Vout)
 	plot v(vp)  v(Vout)
 	*display
-write tb_Opamp_transient.raw
+op
+write tb_Opamp_transient_closed_loop.raw
 .endc
 
 .end
@@ -65,12 +71,22 @@ C {devices/lab_pin.sym} -200 -60 1 0 {name=p9 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} -200 0 3 0 {name=p10 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} -200 -400 0 1 {name=p4 sig_type=std_logic lab=VDD}
 C {devices/gnd.sym} -20 -140 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} -340 -330 0 0 {name=p8 sig_type=std_logic lab=Vp}
+C {devices/lab_pin.sym} -430 -330 0 0 {name=p8 sig_type=std_logic lab=Vp}
 C {devices/capa.sym} 90 -190 0 0 {name=C1
 m=1
 value=25p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_pin.sym} -180 -180 2 0 {name=p11 sig_type=std_logic lab=Ibias}
+C {devices/lab_pin.sym} -130 -180 2 0 {name=p11 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} 90 -270 0 1 {name=p1 sig_type=std_logic lab=Vout}
 C {ttsky25_two_stage_opamp.sym} -190 -290 0 0 {name=x1}
+C {vsource.sym} -370 -330 1 0 {name=V2 value=14.8927u savecurrent=false}
+C {devices/launcher.sym} -650 -330 0 0 {name=h15
+descr="Annotate OP" 
+tclcommand="set show_hidden_texts 1; xschem annotate_op"
+}
+C {res.sym} 0 -210 0 0 {name=R1
+value=1Meg
+footprint=1206
+device=resistor
+m=1}

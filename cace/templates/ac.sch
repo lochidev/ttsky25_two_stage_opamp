@@ -82,6 +82,8 @@ value="
 .include CACE\{DUT_path\}
 
 .temp CACE\{temperature\}
+.param vcm = (CACE\{vdd\}/2 + (CACE\{vcm_diff\}))
+
 
 .option SEED=CACE[CACE\{seed=12345\} + CACE\{iterations=0\}]
 
@@ -97,7 +99,7 @@ C {devices/lab_wire.sym} 210 210 2 0 {name=p8 sig_type=std_logic lab=Ibias}
 C {devices/vcvs.sym} 150 390 0 1 {name=E1 value=0.5}
 C {devices/vcvs.sym} 310 390 0 0 {name=E2 value=-0.5}
 C {devices/vsource.sym} 50 510 0 0 {name=Vdm value="ac 1" savecurrent=false}
-C {devices/vsource.sym} 230 510 0 0 {name=Vcm value=CACE\{vcm\} savecurrent=false}
+C {devices/vsource.sym} 230 510 0 0 {name=Vcm value=\{vcm\} savecurrent=false}
 C {devices/gnd.sym} 50 560 0 0 {name=l5 lab=GND}
 C {devices/gnd.sym} 230 560 0 0 {name=l6 lab=GND}
 C {devices/gnd.sym} 230 430 0 0 {name=l7 lab=GND}

@@ -15,10 +15,10 @@ N -90 -250 10 -250 {lab=Vout}
 N -250 -360 -250 -340 {lab=VDD}
 N -230 -120 -170 -120 {lab=Ibias}
 N -230 -160 -230 -150 {lab=Ibias}
-N -290 100 -290 120 {lab=GND}
-N -290 10 -290 40 {lab=VDD}
-N -180 10 -180 40 {lab=VDD}
-N -180 100 -180 160 {lab=Ibias}
+N -430 -20 -430 0 {lab=GND}
+N -430 -110 -430 -80 {lab=VDD}
+N -320 -110 -320 -80 {lab=VDD}
+N -320 -20 -320 40 {lab=Ibias}
 N -230 -150 -230 -120 {lab=Ibias}
 N -250 -100 -250 -70 {lab=GND}
 N 10 -250 10 -230 {lab=Vout}
@@ -45,12 +45,12 @@ write tb_Opamp_OP.raw
 
 .end
 "}
-C {devices/vsource.sym} -290 70 0 0 {name=V1 value=1.8 savecurrent=false}
-C {devices/gnd.sym} -290 120 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} -290 10 1 0 {name=p2 sig_type=std_logic lab=VDD}
-C {devices/isource.sym} -180 70 0 0 {name=I0 value=5u}
-C {devices/lab_pin.sym} -180 10 1 0 {name=p9 sig_type=std_logic lab=VDD}
-C {devices/lab_pin.sym} -180 160 3 0 {name=p10 sig_type=std_logic lab=Ibias}
+C {devices/vsource.sym} -430 -50 0 0 {name=V1 value=1.8 savecurrent=false}
+C {devices/gnd.sym} -430 0 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} -430 -110 1 0 {name=p2 sig_type=std_logic lab=VDD}
+C {devices/isource.sym} -320 -50 0 0 {name=I0 value=5u}
+C {devices/lab_pin.sym} -320 -110 1 0 {name=p9 sig_type=std_logic lab=VDD}
+C {devices/lab_pin.sym} -320 40 3 0 {name=p10 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} -250 -360 2 0 {name=p3 sig_type=std_logic lab=VDD}
 C {devices/gnd.sym} -100 -70 0 0 {name=l2 lab=GND}
 C {devices/lab_pin.sym} -390 -210 0 0 {name=p7 sig_type=std_logic lab=Vn}
@@ -62,7 +62,7 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} -170 -120 2 0 {name=p11 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} -30 -250 2 1 {name=p1 sig_type=std_logic lab=Vout}
-C {devices/launcher.sym} -490 -80 0 0 {name=h15
+C {devices/launcher.sym} -570 -400 0 0 {name=h15
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
