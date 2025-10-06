@@ -1,4 +1,4 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/cace/badge.svg)
+![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg)
 
 # Tiny Tapeout Analog Project Template
 
