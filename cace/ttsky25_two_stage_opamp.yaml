@@ -137,17 +137,17 @@ parameters:
         suffix: .data
         variables: [gain_max, ugf, pm]
     plot:
-      gain_vs_temp:
+      gain_vs_temp_ngspice:
         type: xyplot
         xaxis: temperature
         yaxis: gain_max
         limits: auto
-      ugf_vs_corner:
+      ugf_vs_corner_ngspice:
         type: xyplot
         xaxis: corner
         yaxis: ugf
         limits: true
-      pm_vs_vdd:
+      pm_vs_vdd_ngspice:
         type: xyplot
         xaxis: vdd
         yaxis: pm
