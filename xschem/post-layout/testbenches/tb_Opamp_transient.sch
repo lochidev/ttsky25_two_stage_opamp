@@ -30,18 +30,18 @@ C {devices/code_shown.sym} -1370 -360 0 0 {name=SPICE1 only_toplevel=false value
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
-vp Vp 0 SIN(0.9 0.001 100k)
-vn Vn 0 SIN(0.9 -0.001 100k)
+vp Vp 0 SIN(0.9 0.0001 1k)
+vn Vn 0 SIN(0.9 -0.0001 1k)
 .save all
 
 
 .control
 	** Define input signal
-	let fsig = 100k
+	let fsig = 1k
 	let tper = 1/fsig
 	** Define transient params
-	let tstop = 10*tper
-	let tstep = 0.005*tper
+	let tstop = 6*tper
+	let tstep = 0.0025*tper
 	tran $&tstep $&tstop
 	meas tran vo_max MAX v(Vout)
 	meas tran vo_min MIN v(Vout)

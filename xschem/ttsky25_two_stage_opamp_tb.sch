@@ -423,3 +423,4 @@ L=14
 model=res_xhigh_po_1p41
 spiceprefix=X
 mult=1}
+C {title.sym} -320 580 0 0 {name=l1 author="Lochana Katugaha"}

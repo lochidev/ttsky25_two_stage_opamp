@@ -21,12 +21,13 @@ C {devices/code_shown.sym} -1340 -330 0 0 {name=SPICE1 only_toplevel=false value
 *.option temp=27
 .option savecurrents
 .param VCC=1.8
+.param vcm=1.01
 
-.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice sf
 .include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
-vp Vp 0 DC 0.9 AC 0.001
-vn Vn 0 DC 0.9 AC -0.001
+vp Vp 0 DC vcm AC 0.001
+vn Vn 0 DC vcm AC -0.001
 .save all
 .control
 	run
@@ -46,7 +47,6 @@ vn Vn 0 DC 0.9 AC -0.001
 		print f_u
 		meas ac phase_at_fu FIND phase_deg AT=f_u
 		echo 'phase margin at $tempval: '
-		print phase_at_fu
 		let phase_margin = 180 + phase_at_fu
 		print phase_margin
 
@@ -56,7 +56,7 @@ write tb_Opamp.raw
 
 .end
 "}
-C {devices/vsource.sym} -310 -30 0 0 {name=V1 value=1.8 savecurrent=false}
+C {devices/vsource.sym} -310 -30 0 0 {name=V1 value=\{VCC\} savecurrent=false}
 C {devices/gnd.sym} -310 0 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} -310 -60 1 0 {name=p2 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} -160 -420 0 1 {name=p4 sig_type=std_logic lab=VDD}
@@ -74,3 +74,7 @@ C {devices/lab_pin.sym} -200 0 3 0 {name=p10 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} -140 -210 2 0 {name=p11 sig_type=std_logic lab=Ibias}
 C {devices/lab_pin.sym} 100 -300 0 1 {name=p1 sig_type=std_logic lab=Vout}
 C {ttsky25_two_stage_opamp.sym} -150 -300 0 0 {name=x1}
+C {devices/launcher.sym} -480 -300 0 0 {name=h15
+descr="Annotate OP" 
+tclcommand="set show_hidden_texts 1; xschem annotate_op"
+}

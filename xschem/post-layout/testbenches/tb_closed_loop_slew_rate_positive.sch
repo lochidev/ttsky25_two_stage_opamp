@@ -42,7 +42,7 @@ C {devices/code_shown.sym} -1190 -290 0 0 {name=SPICE1 only_toplevel=false value
 .param VCC=1.8
 
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.include /foss/designs/ttsky25_two_stage_opamp/xschem/post-layout/spice/two_stage_op_amp.spice
+.include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
 vp Vp 0 PULSE(0.9 1.3 150n 1n 1n 1200n 2400n)
 
