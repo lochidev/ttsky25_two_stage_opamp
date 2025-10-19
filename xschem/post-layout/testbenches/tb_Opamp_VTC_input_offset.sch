@@ -36,7 +36,7 @@ Bvn vn 0 V = vcm - V(vdiff)/2
 .control
 
 dc vdiff -0.003 0.003 0.0001
-let vin = vp -vn
+let vin = vp - vn
 plot vin vout vdd
 meas dc in_offset find vdiff when vout=0.9
 meas dc vo_max MAX v(Vout)
