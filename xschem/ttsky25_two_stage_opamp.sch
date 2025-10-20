@@ -11,7 +11,7 @@ and the common source stage
 input MOSFETs (2nd stage) - Matched!} -1680 -1880 0 0 1 1 {}
 T {This is the schematic used for LVS. 
 Placement of MOSFETs should closely match the layout plan
-found the docs folder. 
+found in the docs folder. 
 The routing mostly reflects what is seen in the layout.
 See ttsky25_two_stage_opamp_tb.sch 
 for the schematic without dummy transistors.} 1170 -620 0 0 1.5 1.5 {layer=8}
