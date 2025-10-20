@@ -5,6 +5,8 @@ V {}
 S {}
 F {}
 E {}
+B 4 90 360 1630 560 {fill=false}
+T {This schematic does not contain any dummy transistors.} 120 440 0 0 1 1 {layer=8}
 N -70 -110 -70 -90 {lab=ITAIL}
 N -70 -90 10 -90 {lab=ITAIL}
 N 90 -110 90 -90 {lab=ITAIL}
@@ -423,4 +425,4 @@ L=14
 model=res_xhigh_po_1p41
 spiceprefix=X
 mult=1}
-C {title.sym} -320 580 0 0 {name=l1 author="Lochana Katugaha"}
+C {title.sym} -310 630 0 0 {name=l1 author="Lochana Katugaha"}
