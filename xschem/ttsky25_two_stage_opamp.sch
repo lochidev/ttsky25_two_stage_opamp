@@ -5,6 +5,19 @@ V {}
 S {}
 F {}
 E {}
+B 4 1060 -710 3640 50 {fill=false}
+T {PMOS active loads (1st stage diode connected PMOS) 
+and the common source stage 
+input MOSFETs (2nd stage) - Matched!} -1680 -1880 0 0 1 1 {}
+T {This is the schematic used for LVS. 
+Placement of MOSFETs should closely match the layout plan
+found the docs folder. 
+The routing mostly reflects what is seen in the layout.
+See ttsky25_two_stage_opamp_tb.sch 
+for the schematic without dummy transistors.} 1170 -620 0 0 1.5 1.5 {layer=8}
+T {NMOS differential pair - 1st Stage - Matched!} -1730 -480 0 0 1 1 {}
+T {NMOS enable switches - Not matched!} -1560 600 0 0 1 1 {}
+T {NMOS current mirror - Matched!} -1420 910 0 0 1 1 {}
 N -330 -1020 -330 -960 {lab=Vpo}
 N -170 -1020 -170 -960 {lab=Vout1}
 N -690 -540 -650 -540 {lab=VN}
@@ -2927,3 +2940,4 @@ L=14
 model=res_xhigh_po_1p41
 spiceprefix=X
 mult=1}
+C {title.sym} -890 1470 0 0 {name=l1 author="Lochana Katugaha"}
