@@ -38,7 +38,7 @@ C {devices/code_shown.sym} -1370 -360 0 0 {name=SPICE1 only_toplevel=false value
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice sf
 .include /foss/designs/ttsky25_two_stage_opamp/netlist/rcx/ttsky25_two_stage_opamp.spice
 
-vp Vp 0 SIN(0.8 0.2 10k)
+vp Vp 0 SIN(0.9 0.4 10k)
 *vn Vn 0 SIN(0.9 -0.001 10k)
 
 .save all

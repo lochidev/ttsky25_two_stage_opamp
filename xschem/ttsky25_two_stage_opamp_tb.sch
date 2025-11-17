@@ -114,130 +114,6 @@ N -370 300 -370 430 {lab=VSS}
 N -370 430 10 430 {lab=VSS}
 N 10 400 10 430 {lab=VSS}
 N 330 30 330 90 {lab=#net5}
-C {code_shown.sym} -1530 -980 0 0 {name=NGSPICE1 only_toplevel=false value="
-.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
-.param vcm = 0.9
-**Setup
-Vdd vdd 0 1.8
-Ven en 0 1.8
-Ibias Vdd Ibias 5u
-*Vdd vdd 0 SIN(1.8 0.1 600k)
-Vss vss 0 0
-
-*Uncomment sources below depending* 
-*on what simulation needs to be run*
-*AC simulation or (DC + Transient)*
-
-*This line is not really needed -> Vdiff vdiff 0 0
-
-*Transient + DC Transfer*
-*Vdiff vdiff 0 SIN(0 0.001 1k)
-*Bvp vp 0 V = vcm + V(vdiff)/2
-*Bvn vn 0 V = vcm - V(vdiff)/2
-
-*AC small signal*
-Vp vp 0 vcm AC 0.001
-Vn vn 0 vcm AC -0.001
-
-**Simulation
-.option temp=27 gmin=1e-12
-.save all
-.options savecurrents
-.control
-** Define input signal
-let fsig = 1k
-let tper = 1/fsig
-** Define transient params
-let tstop = 10*tper
-let tstep = 0.001*tper
-
-op
-remzerovec
-write ttsky25_two_stage_opamp_tb.raw
-echo ---xm2---
-let gds2 = @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gds]
-let ro2 = 1/gds2
-echo ---xm4---
-let gds4 = @m.xm4.msky130_fd_pr__pfet_01v8[gds]
-let ro4 = 1/gds4
-let RoD = 1/((1/ro2) + (1/ro4))
-echo ---xm6---
-print @m.xm6.msky130_fd_pr__nfet_01v8_lvt[vdsat]
-echo -----COMMON SOURCE-----
-echo ---xm7---
-let gds7 = @m.xm7.msky130_fd_pr__pfet_01v8[gds]
-let gm7 = @m.xm7.msky130_fd_pr__pfet_01v8[gm]
-let r_zero = 1/gm7
-print r_zero
-let ro7 = 1/gds7
-echo ---xm8---
-let gds8 = @m.xm8.msky130_fd_pr__nfet_01v8_lvt[gds]
-let ro8 = 1/gds8
-echo ---xm10---
-let gds10 = @m.xm10.msky130_fd_pr__nfet_01v8_lvt[gds]
-let ro10 = 1/gds10
-let Ros = 1/((1/ro7) + (1/(ro8+ro10)))
-
-
-tran $&tstep $&tstop
-let current = -i(vdd)
-plot vp vn vout1
-plot vp vn vout
-
-dc vdiff -0.9 0.9 10m
-let vin = vp -vn
-plot vin vout1 vdd
-meas dc vout1_at_zero find vout1 when vdiff=0
-
-dc vdiff -0.9 0.9 10m
-let vin = vp -vn
-plot vin vout vdd
-meas dc vout_at_zero find vout when vdiff=0
-
-ac dec 200 10 10000Meg
-let vin = vp - vn
-let gain = db(vout/vin)
-plot gain
-meas ac gain_max MAX gain
-let db_3 = gain_max - 3
-print db_3
-meas ac f_pole WHEN gain = db_3
-meas ac f_u WHEN gain = 0
-meas ac gain_10k FIND gain AT=10e3
-let phase_deg = 180*cph(vout/vin)/pi
-plot phase_deg
-meas ac phase_at_fu FIND phase_deg AT=f_u
-let phase_margin = 180 + phase_at_fu
-print phase_margin
-setplot op1
-print @m.xm2.msky130_fd_pr__nfet_01v8_lvt[vth]
-print @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gm]
-print @m.xm2.msky130_fd_pr__nfet_01v8_lvt[vdsat]
-print @m.xm7.msky130_fd_pr__pfet_01v8[vth]
-print @m.xm7.msky130_fd_pr__pfet_01v8[gm]
-print @m.xm7.msky130_fd_pr__pfet_01v8[vdsat]
-print ro2
-print ro4
-print RoD
-print ro10
-print ro8
-print ro8+ro10
-print ro7
-print Ros
-let ro5 = 1/@m.xm5.msky130_fd_pr__nfet_01v8_lvt[gds]
-print ro5
-let Av1 = @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gm] * RoD
-let Av2 = @m.xm7.msky130_fd_pr__pfet_01v8[gm] * Ros
-print Av1
-print Av2
-let x7_gm_id = @m.xm7.msky130_fd_pr__pfet_01v8[gm]/@m.xm7.msky130_fd_pr__pfet_01v8[id]
-print x7_gm_id
-let x4_gm_id = @m.xm4.msky130_fd_pr__pfet_01v8[gm]/@m.xm4.msky130_fd_pr__pfet_01v8[id]
-print x4_gm_id
-let x2_gm_id = @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gm]/@m.xm2.msky130_fd_pr__nfet_01v8_lvt[id]
-print x2_gm_id
-.endc
-"}
 C {iopin.sym} 10 430 1 0 {name=p4 lab=VSS}
 C {lab_wire.sym} -120 -140 0 0 {name=p7 sig_type=std_logic lab=VN}
 C {lab_wire.sym} -70 -200 0 0 {name=p8 sig_type=std_logic lab=Vpo}
@@ -426,3 +302,129 @@ model=res_xhigh_po_1p41
 spiceprefix=X
 mult=1}
 C {title.sym} -310 630 0 0 {name=l1 author="Lochana Katugaha"}
+C {code_shown.sym} -1530 -1060 0 0 {name=NGSPICE1 only_toplevel=false value="
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.param vcm = 0.9
+**Setup
+Vdd vdd 0 1.8
+Ven en 0 1.8
+Ibias Vdd Ibias 5u
+*Vdd vdd 0 SIN(1.8 0.1 600k)
+Vss vss 0 0
+
+*Uncomment sources below depending* 
+*on what simulation needs to be run*
+*AC simulation or (DC + Transient)*
+
+*This line is not really needed -> Vdiff vdiff 0 0
+
+*Transient + DC Transfer*
+*Vdiff vdiff 0 SIN(0 0.001 1k)
+*Bvp vp 0 V = vcm + V(vdiff)/2
+*Bvn vn 0 V = vcm - V(vdiff)/2
+
+*AC small signal*
+Vp vp 0 vcm AC 0.001
+Vn vn 0 vcm AC -0.001
+
+**Simulation
+.option temp=27 gmin=1e-12
+.save all
+.options savecurrents
+.control
+** Define input signal
+let fsig = 1k
+let tper = 1/fsig
+** Define transient params
+let tstop = 10*tper
+let tstep = 0.001*tper
+
+op
+remzerovec
+write ttsky25_two_stage_opamp_tb.raw
+echo ---xm2---
+let gds2 = @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gds]
+let ro2 = 1/gds2
+echo ---xm4---
+let gds4 = @m.xm4.msky130_fd_pr__pfet_01v8[gds]
+let ro4 = 1/gds4
+let RoD = 1/((1/ro2) + (1/ro4))
+echo ---xm6---
+print @m.xm6.msky130_fd_pr__nfet_01v8_lvt[vdsat]
+echo -----COMMON SOURCE-----
+echo ---xm7---
+let gds7 = @m.xm7.msky130_fd_pr__pfet_01v8[gds]
+let gm7 = @m.xm7.msky130_fd_pr__pfet_01v8[gm]
+let r_zero = 1/gm7
+print r_zero
+let ro7 = 1/gds7
+echo ---xm8---
+let gds8 = @m.xm8.msky130_fd_pr__nfet_01v8_lvt[gds]
+let ro8 = 1/gds8
+echo ---xm10---
+let gds10 = @m.xm10.msky130_fd_pr__nfet_01v8_lvt[gds]
+let ro10 = 1/gds10
+let Ros = 1/((1/ro7) + (1/(ro8+ro10)))
+
+
+tran $&tstep $&tstop
+let current = -i(vdd)
+plot vp vn vout1
+plot vp vn vout
+
+dc vdiff -0.9 0.9 10m
+let vin = vp -vn
+plot vin vout1 vdd
+meas dc vout1_at_zero find vout1 when vdiff=0
+
+dc vdiff -0.9 0.9 10m
+let vin = vp -vn
+plot vin vout vdd
+meas dc vout_at_zero find vout when vdiff=0
+
+ac dec 200 10 10000Meg
+let vin = vp - vn
+let gain = db(vout/vin)
+let phase_deg = 180*cph(vout/vin)/pi
+plot gain phase_deg xlog
+meas ac gain_max MAX gain
+let db_3 = gain_max - 3
+print db_3
+meas ac f_pole WHEN gain = db_3
+meas ac f_u WHEN gain = 0
+meas ac gain_10k FIND gain AT=10e3
+meas ac phase_at_fu FIND phase_deg AT=f_u
+let phase_margin = 180 + phase_at_fu
+print phase_margin
+setplot op1
+print @m.xm2.msky130_fd_pr__nfet_01v8_lvt[vth]
+print @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gm]
+print @m.xm2.msky130_fd_pr__nfet_01v8_lvt[vdsat]
+print @m.xm7.msky130_fd_pr__pfet_01v8[vth]
+print @m.xm7.msky130_fd_pr__pfet_01v8[gm]
+print @m.xm7.msky130_fd_pr__pfet_01v8[vdsat]
+print @m.xm4.msky130_fd_pr__pfet_01v8[vth]
+print @m.xm4.msky130_fd_pr__pfet_01v8[gm]
+print @m.xm4.msky130_fd_pr__pfet_01v8[vdsat]
+print ro2
+print ro4
+print RoD
+print ro10
+print ro8
+print ro8+ro10
+print ro7
+print Ros
+let ro5 = 1/@m.xm5.msky130_fd_pr__nfet_01v8_lvt[gds]
+print ro5
+let Av1 = @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gm] * RoD
+let Av2 = @m.xm7.msky130_fd_pr__pfet_01v8[gm] * Ros
+print Av1
+print Av2
+let x7_gm_id = @m.xm7.msky130_fd_pr__pfet_01v8[gm]/@m.xm7.msky130_fd_pr__pfet_01v8[id]
+print x7_gm_id
+let x4_gm_id = @m.xm4.msky130_fd_pr__pfet_01v8[gm]/@m.xm4.msky130_fd_pr__pfet_01v8[id]
+print x4_gm_id
+let x2_gm_id = @m.xm2.msky130_fd_pr__nfet_01v8_lvt[gm]/@m.xm2.msky130_fd_pr__nfet_01v8_lvt[id]
+print x2_gm_id
+.endc
+"}

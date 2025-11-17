@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <report-database>
  <description>SKY130 DRC runset</description>
- <original-file>/foss/designs/ttsky25_two_stage_opamp/gds/tt_um_lochidev_two_stage_opamp.gds</original-file>
+ <original-file>/foss/designs/ttsky25_two_stage_opamp/gds/two_stage_opamp.gds</original-file>
  <generator>drc: script='/foss/pdks/sky130A/libs.tech/klayout/macros/run_drc_full.lydrc'</generator>
- <top-cell>tt_um_lochidev_two_stage_opamp</top-cell>
+ <top-cell>two_stage_opamp</top-cell>
  <tags>
  </tags>
  <categories>
@@ -1546,7 +1546,7 @@
  </categories>
  <cells>
   <cell>
-   <name>tt_um_lochidev_two_stage_opamp</name>
+   <name>two_stage_opamp</name>
    <variant/>
    <layout-name/>
    <references>
